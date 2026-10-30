@@ -1,0 +1,69 @@
+{
+  "entities": {
+    "Appointment": {
+      "title": "Appointment",
+      "description": "Hospital consultation appointment record booked by a patient",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "userId": { "type": "string" },
+        "tokenNumber": { "type": "string" },
+        "patientName": { "type": "string" },
+        "patientPhone": { "type": "string" },
+        "patientAge": { "type": "string" },
+        "patientGender": { "type": "string" },
+        "departmentId": { "type": "string" },
+        "departmentName": { "type": "string" },
+        "doctorId": { "type": "string" },
+        "doctorName": { "type": "string" },
+        "appointmentDate": { "type": "string" },
+        "appointmentTimeSlot": { "type": "string" },
+        "symptoms": { "type": "string" },
+        "status": { "type": "string", "enum": ["Confirmed", "Completed", "Cancelled"] },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["userId", "tokenNumber", "patientName", "patientPhone", "departmentName", "doctorName", "appointmentDate", "appointmentTimeSlot", "status"]
+    },
+    "Inquiry": {
+      "title": "Inquiry",
+      "description": "Patient feedback and inquiry message",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "userId": { "type": "string" },
+        "name": { "type": "string" },
+        "contact": { "type": "string" },
+        "message": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["userId", "name", "contact", "message"]
+    },
+    "BloodRequest": {
+      "title": "BloodRequest",
+      "description": "Emergency blood transfusion unit request",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "userId": { "type": "string" },
+        "bloodGroup": { "type": "string" },
+        "status": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["userId", "bloodGroup", "status"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}/appointments/{appointmentId}": {
+      "schema": { "$ref": "#/entities/Appointment" },
+      "description": "Appointments for a specific user"
+    },
+    "/users/{userId}/inquiries/{inquiryId}": {
+      "schema": { "$ref": "#/entities/Inquiry" },
+      "description": "Inquiries submitted by a user"
+    },
+    "/users/{userId}/bloodRequests/{requestId}": {
+      "schema": { "$ref": "#/entities/BloodRequest" },
+      "description": "Emergency blood requests submitted by a user"
+    }
+  }
+}

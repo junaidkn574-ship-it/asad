@@ -1,0 +1,8 @@
+{
+  "firestore": [
+    {
+      "database": "ai-studio-android-rehmanho-3c1fa31f-1a64-4cf1-af0e-22423f8c1985",
+      "rules": "firestore.rules"
+    }
+  ]
+}

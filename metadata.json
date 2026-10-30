@@ -1,0 +1,6 @@
+{
+  "name": "Rehman Hospital",
+  "description": "Comprehensive healthcare app for Rehman Medical Hospital in Saidu Sharif, Swat, featuring 24/7 emergency care, department directory, specialist appointments, and critical care hub.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
